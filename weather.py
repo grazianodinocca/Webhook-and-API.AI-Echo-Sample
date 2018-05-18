@@ -34,7 +34,7 @@ def processRequest(req):
     latlon_res = observation.get_location()
     lat=str(latlon_res.get_lat())
     lon=str(latlon_res.get_lon())
-     description = observation.get_description()
+     description = str(w.get('description'))
     wind_res=w.get_wind()
     wind_speed=str(wind_res.get('speed'))
     
