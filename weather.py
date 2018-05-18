@@ -45,7 +45,7 @@ def processRequest(req):
     
     fahrenheit_result=w.get_temperature('fahrenheit')
     temp_min_fahrenheit=str(fahrenheit_result.get('temp_min'))
-    temp_max_fahrenheit=str((int)fahrenheit_result.get('temp_max'))
+    temp_max_fahrenheit=str(fahrenheit_result.get('temp_max'))
     speech = "Soleggiato a " + city + " con massime di "+temp_max_celsius+"°C. Umidità al "+humidity+"% con venti a "+wind_speed+" km/h."
     
     return {
