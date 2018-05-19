@@ -24,21 +24,21 @@ def webhook():
     return r
 
 def processWindDegrees(wind):
-    if(wind==0)
+    if wind==0:
         return "nord"
-    if(wind>0 || wind<90)
+    if wind>0 || wind<90:
         return "nord-est"
-    if(wind==90)
+    if wind==90:
         return "est"
-    if(wind>90 || wind<180)
+    if wind>90 || wind<180:
         return "sud-est"
-    if(wind==180)
+    if wind==180:
         return "sud"
-    if(wind>180 || wind<270)
+    if wind>180 || wind<270:
         return "sud-ovest"
-    if(wind==270)
+    if wind==270:
         return "ovest"
-    if(wind>270 || wind<360)
+    if wind>270 || wind<360:
         return "nord-ovest"
     
 #processing the request from dialogflow
