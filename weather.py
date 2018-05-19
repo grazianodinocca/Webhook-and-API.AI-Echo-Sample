@@ -55,8 +55,7 @@ def processRequest(req):
     lon=str(latlon_res.get_lon())
     wind_res=w.get_wind()
     wind_speed=str(wind_res.get('speed'))
-    wind=str(wind_res.get('deg'))
-    wind=processWindDegrees(wind)
+    wind=str(processWindDegrees(wind_res.get('deg')))
         
     
     humidity=str(w.get_humidity())
