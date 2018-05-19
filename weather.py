@@ -50,6 +50,7 @@ def processRequest(req):
     observation = owm.weather_at_place(city)
     w = observation.get_weather()
     latlon_res = observation.get_location()
+    print(w.get_status())
     description = w.get_status()
     lat=str(latlon_res.get_lat())
     lon=str(latlon_res.get_lon())
