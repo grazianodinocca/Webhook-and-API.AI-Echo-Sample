@@ -41,6 +41,7 @@ def processRequest(req):
     humidity=str(w.get_humidity())
     
     celsius_result=w.get_temperature('celsius')
+    temp=str(celsius_result.get('temp'))
     temp_min_celsius=str(celsius_result.get('temp_min'))
     temp_max_celsius=str(celsius_result.get('temp_max'))
     
