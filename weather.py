@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 owmapikey=os.environ.get('OWMApiKey') #or provide your key here
-owm = pyowm.OWM(owmapikey, language='ru')
+owm = pyowm.OWM(owmapikey, language='it')
 
 #geting and sending response to dialogflow
 @app.route('/webhook', methods=['POST'])
