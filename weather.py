@@ -37,6 +37,7 @@ def processRequest(req):
     lon=str(latlon_res.get_lon())
     wind_res=w.get_wind()
     wind_speed=str(wind_res.get('speed'))
+    wind_degree=str(wind_res.get('deg'))
     
     humidity=str(w.get_humidity())
     
@@ -48,7 +49,7 @@ def processRequest(req):
     fahrenheit_result=w.get_temperature('fahrenheit')
     temp_min_fahrenheit=str(fahrenheit_result.get('temp_min'))
     temp_max_fahrenheit=str(fahrenheit_result.get('temp_max'))
-    speech = description + " a " + city + " con massime di "+temp_max_celsius+"°C. Umidità al "+humidity+"% con venti a "+wind_speed+" km/h."
+    speech = description + " a " + city + " con massime di "+temp_max_celsius+"°C. Umidità al "+humidity+"% con venti a "+wind_speed+wind_degree+" km/h."
     
     return {
         "speech": speech,
