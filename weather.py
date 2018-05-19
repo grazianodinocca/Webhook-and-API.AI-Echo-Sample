@@ -49,7 +49,7 @@ def processRequest(req):
     fahrenheit_result=w.get_temperature('fahrenheit')
     temp_min_fahrenheit=str(fahrenheit_result.get('temp_min'))
     temp_max_fahrenheit=str(fahrenheit_result.get('temp_max'))
-    speech = description + " a " + city + " con temperatura media di "+temp_max_celsius+"°C. Umidità al "+humidity+"% con venti da " +wind+ " a "+wind_speed+" km/h."
+    speech = description + " a " + city + " con "+temp+"°C. Umidità al "+humidity+"% con venti da " +wind+ " a "+wind_speed+" km/h."
     
     return {
         "speech": speech,
