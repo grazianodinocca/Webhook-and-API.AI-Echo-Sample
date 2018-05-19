@@ -23,6 +23,24 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
+def processWindDegrees(wind):
+    if(wind==0)
+        return "nord"
+    if(wind>0 || wind<90)
+        return "nord-est"
+    if(wind==90)
+        return "est"
+    if(wind>90 || wind<180)
+        return "sud-est"
+    if(wind==180)
+        return "sud"
+    if(wind>180 || wind<270)
+        return "sud-ovest"
+    if(wind==270)
+        return "ovest"
+    if(wind>270 || wind<360)
+        return "nord-ovest"
+    
 #processing the request from dialogflow
 def processRequest(req):
     
@@ -38,6 +56,8 @@ def processRequest(req):
     wind_res=w.get_wind()
     wind_speed=str(wind_res.get('speed'))
     wind=str(wind_res.get('deg'))
+    wind=processWindDegrees(wind)
+        
     
     humidity=str(w.get_humidity())
     
