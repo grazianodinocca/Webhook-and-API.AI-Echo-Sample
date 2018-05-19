@@ -26,7 +26,7 @@ def webhook():
 def processWindDegrees(wind):
     if wind==0:
         return "nord"
-    if wind>0 || wind<90:
+    if wind>0 or wind<90:
         return "nord-est"
     if wind==90:
         return "est"
