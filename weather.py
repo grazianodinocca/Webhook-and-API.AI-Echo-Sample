@@ -25,21 +25,21 @@ def webhook():
 
 def processWindDegrees(wind):
     if wind==0:
-        return "nord"
+        return "Nord"
     if wind>0 or wind<90:
-        return "nord-est"
+        return "Nord-Est"
     if wind==90:
-        return "est"
+        return "Est"
     if wind>90 or wind<180:
-        return "sud-est"
+        return "Sud-Est"
     if wind==180:
-        return "sud"
+        return "Sud"
     if wind>180 or wind<270:
-        return "sud-ovest"
+        return "Sud-Ovest"
     if wind==270:
-        return "ovest"
+        return "Ovest"
     if wind>270 or wind<360:
-        return "nord-ovest"
+        return "Nord-Ovest"
     
 #processing the request from dialogflow
 def processRequest(req):
@@ -55,7 +55,7 @@ def processRequest(req):
     lat=str(latlon_res.get_lat())
     lon=str(latlon_res.get_lon())
     wind_res=w.get_wind()
-    wind_speed=str(wind_res.get('speed'))
+    wind_speed=str(int(round(wind_res.get('speed'))))
     wind=str(processWindDegrees(wind_res.get('deg')))
         
     
