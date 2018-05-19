@@ -32,6 +32,7 @@ def processRequest(req):
     observation = owm.weather_at_place(city)
     w = observation.get_weather()
     latlon_res = observation.get_location()
+    description = w.get_detailed_status()
     lat=str(latlon_res.get_lat())
     lon=str(latlon_res.get_lon())
     wind_res=w.get_wind()
@@ -46,7 +47,7 @@ def processRequest(req):
     fahrenheit_result=w.get_temperature('fahrenheit')
     temp_min_fahrenheit=str(fahrenheit_result.get('temp_min'))
     temp_max_fahrenheit=str(fahrenheit_result.get('temp_max'))
-    speech = "Soleggiato a " + city + " con massime di "+temp_max_celsius+"°C. Umidità al "+humidity+"% con venti a "+wind_speed+" km/h."
+    speech = description + " a " + city + " con massime di "+temp_max_celsius+"°C. Umidità al "+humidity+"% con venti a "+wind_speed+" km/h."
     
     return {
         "speech": speech,
