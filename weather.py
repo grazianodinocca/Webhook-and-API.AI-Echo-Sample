@@ -47,6 +47,9 @@ def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
+    outfit = parameters.get("outfit")
+    
+    print(outfit)
     observation = owm.weather_at_place(city)
     w = observation.get_weather()
     latlon_res = observation.get_location()
