@@ -88,7 +88,7 @@ def processRequest(req):
         speech = processWeather(req)
 
     if action=="weather.outfit":
-        speech = processWeather(req)
+        speech = processWeatherOutfit(req)
             
     return {
         "speech": speech,
