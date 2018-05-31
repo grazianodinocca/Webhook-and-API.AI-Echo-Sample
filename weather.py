@@ -76,14 +76,19 @@ def processRequest(req):
         temp_max_fahrenheit=str(fahrenheit_result.get('temp_max'))
         speech = description + " a " + city + " con "+temp+"°C. Umidità al "+humidity+"% con venti da " +wind+ " a "+wind_speed+" km/h."
     
-        return {
-            "speech": speech,
-            "displayText": speech,
-            "source": "dialogflow-weather-by-dinocca-graziano"
-            }
-    if action=="weather.outfit":
-        print("vestiario")
         
+    if action=="weather.outfit":
+        if(parameters.get("geo-city")==null):
+            speech = "Per quale destinazione?"
+        else:
+            city = parameters.get("geo-city")
+            
+            speech = city
+    return {
+        "speech": speech,
+        "displayText": speech,
+        "source": "dialogflow-weather-by-dinocca-graziano"
+            }
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
     print("Starting app on port %d" % port)
