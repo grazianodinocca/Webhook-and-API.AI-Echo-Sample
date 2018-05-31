@@ -48,7 +48,7 @@ def processRequest(req):
     parameters = result.get("parameters")
     
     action = result.get("action")
-    if action=="weather"
+    if action=="weather":
         print("tempo")
         city = parameters.get("geo-city")
         observation = owm.weather_at_place(city)
@@ -81,7 +81,7 @@ def processRequest(req):
             "displayText": speech,
             "source": "dialogflow-weather-by-dinocca-graziano"
             }
-    if action=="weather.outfit"
+    if action=="weather.outfit":
         print("vestiario")
         
 if __name__ == '__main__':
