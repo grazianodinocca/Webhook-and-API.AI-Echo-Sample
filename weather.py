@@ -82,7 +82,7 @@ def processRequest(req):
     
     result = req.get("result")
     parameters = result.get("parameters")
-    action = result.get("action")
+    action = req.get("action")
     
     if action=="weather":
         speech = processWeather(req)
