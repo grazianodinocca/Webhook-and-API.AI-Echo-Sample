@@ -77,7 +77,7 @@ def processRequest(req):
         speech = description + " a " + city + " con "+temp+"°C. Umidità al "+humidity+"% con venti da " +wind+ " a "+wind_speed+" km/h."
     
         
-    if action=="weather.outfit":
+    else:
         if(parameters.get("geo-city")==""):
             speech = "Per quale destinazione?"
             print(speech)
