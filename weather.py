@@ -66,6 +66,16 @@ def processWeather(req):
     temp_max_fahrenheit=str(fahrenheit_result.get('temp_max'))
     string = description + " a " + city + " con "+temp+"°C. Umidità al "+humidity+"% con venti da " +wind+ " a "+wind_speed+" km/h."
     return string 
+
+def processWeatherOutfit(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    city = parameters.get("geo-city")
+    if city=="":
+        string = "In quale città?"
+        return string
+    else:
+        return city
     
 #processing the request from dialogflow
 def processRequest(req):
@@ -78,12 +88,7 @@ def processRequest(req):
         speech = processWeather(req)
 
     if action=="weather.outfit":
-        if(parameters.get("geo-city")==""):
-            speech = "In quale città?"
-            print(speech)
-        else:
-            city = parameters.get("geo-city")
-            speech = city
+        speech = processWeather(req)
             
     return {
         "speech": speech,
