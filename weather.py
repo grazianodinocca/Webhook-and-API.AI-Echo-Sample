@@ -78,7 +78,7 @@ def processRequest(req):
     
         
     if action=="weather.outfit":
-        if(parameters.get("geo-city")==null):
+        if(parameters.get("geo-city")==""):
             speech = "Per quale destinazione?"
         else:
             city = parameters.get("geo-city")
