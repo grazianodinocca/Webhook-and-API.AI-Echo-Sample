@@ -80,15 +80,17 @@ def processRequest(req):
     if action=="weather.outfit":
         if(parameters.get("geo-city")==""):
             speech = "Per quale destinazione?"
+            print(speech)
         else:
             city = parameters.get("geo-city")
-            
             speech = city
+            
     return {
         "speech": speech,
         "displayText": speech,
         "source": "dialogflow-weather-by-dinocca-graziano"
             }
+
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
     print("Starting app on port %d" % port)
