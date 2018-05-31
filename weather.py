@@ -47,7 +47,6 @@ def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
-    outfit = parameters.get("outfit")
     observation = owm.weather_at_place(city)
     w = observation.get_weather()
     latlon_res = observation.get_location()
@@ -71,7 +70,7 @@ def processRequest(req):
     fahrenheit_result=w.get_temperature('fahrenheit')
     temp_min_fahrenheit=str(fahrenheit_result.get('temp_min'))
     temp_max_fahrenheit=str(fahrenheit_result.get('temp_max'))
-    speech = outfit+description + " a " + city + " con "+temp+"°C. Umidità al "+humidity+"% con venti da " +wind+ " a "+wind_speed+" km/h."
+    speech = description + " a " + city + " con "+temp+"°C. Umidità al "+humidity+"% con venti da " +wind+ " a "+wind_speed+" km/h."
     
     return {
         "speech": speech,
