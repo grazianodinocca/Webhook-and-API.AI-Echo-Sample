@@ -66,7 +66,14 @@ def processWindDegrees(wind):
         return "Ovest"
     if wind>270 or wind<360:
         return "Nord-Ovest"
-    
+      
+def datetime(time):
+    time[11]=" "
+    time[24]="+"
+    time[25]="0"
+    time[26]="0"
+    return time
+  
 def processWeather(req):
     result = req.get("result")
     parameters = result.get("parameters")
@@ -104,6 +111,7 @@ def processWeatherOutfit(req):
         outfit = parameters.get("outfit")
         fc = owm.three_hours_forecast(city)
         time = parameters.get("date-time")
+        time = datetime(time)
         print(time)
         fc.get_weather_at(time)
         observation = owm.weather_at_place(city)
