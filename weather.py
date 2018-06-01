@@ -125,7 +125,7 @@ def processWeatherOutfit(req):
         elif outfit in SUN:
             answer = random.choice(LIST_YES) if fc.will_have_sun() else random.choice(LIST_NO)
         else:
-            answer = "Non so cosa intenda per "+outfit+"."
+            answer = "Non penso di aver capito bene cosa vorresti indossare."
         return answer
     
 #processing the request from dialogflow
