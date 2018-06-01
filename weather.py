@@ -107,8 +107,8 @@ def processWeatherOutfit(req):
         celsius_result=w.get_temperature('celsius')
         temp=int(round(celsius_result.get('temp')))
         if outfit in COLD_WEATHER:
-            answer = LIST_YES if temp < _TEMP_LIMITS[
-                'chilly']['C'] else LIST_NO
+            answer = random.choice(LIST_YES) if temp < _TEMP_LIMITS[
+                'chilly']['C'] else random.choice(LIST_NO)
         return answer
     
 #processing the request from dialogflow
