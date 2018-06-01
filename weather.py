@@ -42,30 +42,40 @@ def processWindDegrees(wind):
         return "Nord-Ovest"
     
 def processWeather(req):
-    result = req.get("result")
-    parameters = result.get("parameters")
-    city = parameters.get("geo-city")
-    observation = owm.weather_at_place(city)
-    w = observation.get_weather()
-    latlon_res = observation.get_location()
-    print(w.get_status())
-    description = w.get_detailed_status()
-    description = description[0].upper()+description[1:]
-    lat=str(latlon_res.get_lat())
-    lon=str(latlon_res.get_lon())
-    wind_res=w.get_wind()
-    wind_speed=str(int(round(wind_res.get('speed'))))
-    wind=str(processWindDegrees(wind_res.get('deg')))
-    humidity=str(w.get_humidity())
-    celsius_result=w.get_temperature('celsius')
-    temp=str(int(round(celsius_result.get('temp'))))
-    temp_min_celsius=str(celsius_result.get('temp_min'))
-    temp_max_celsius=str(celsius_result.get('temp_max'))    
-    fahrenheit_result=w.get_temperature('fahrenheit')
-    temp_min_fahrenheit=str(fahrenheit_result.get('temp_min'))
-    temp_max_fahrenheit=str(fahrenheit_result.get('temp_max'))
-    string = description + " a " + city + " con "+temp+"°C. Umidità al "+humidity+"% con venti da " +wind+ " a "+wind_speed+" km/h."
-    return string 
+   """Returns a string containing text with a response to the user
+    with the weather forecast or a prompt for more information
+    Takes the city for the forecast and (optional) dates
+    uses the template responses found in weather_responses.py as templates
+    """
+    parameters = req['queryResult']['parameters']
+
+    print('Dialogflow Parameters:')
+    print(json.dumps(parameters, indent=4))
+
+    # validate request parameters, return an error if there are issues
+    error, forecast_params = validate_params(parameters)
+    if error:
+        return error
+
+    # create a forecast object which retrieves the forecast from a external API
+    try:
+        forecast = Forecast(forecast_params)
+    # return an error if there is an error getting the forecast
+    except (ValueError, IOError) as error:
+        return error
+
+    # If the user requests a datetime period (a date/time range), get the
+    # response
+    if forecast.datetime_start and forecast.datetime_end:
+        response = forecast.get_datetime_period_response()
+    # If the user requests a specific datetime, get the response
+    elif forecast.datetime_start:
+        response = forecast.get_datetime_response()
+    # If the user doesn't request a date in the request get current conditions
+    else:
+        response = forecast.get_current_response()
+
+    return response
 
 def processWeatherOutfit(req):
     result = req.get("result")
