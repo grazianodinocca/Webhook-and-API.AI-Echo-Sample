@@ -39,7 +39,7 @@ LIST_WARM = [
 ]
 
 LIST_HOT = [
-    'Oh, a {city} fa caldissimo! Ci sono {temp}°C.',
+    'Oh, a {city} fa molto caldo! Ci sono {temp}°C.',
     'Fa molto caldo a {city}. La temperatura è di {temp}°C.',
     'Le temperature sono molto elevate a {city}, fa un gran caldo.'
     'La temperatura è di {temp}°C a {city}.'
