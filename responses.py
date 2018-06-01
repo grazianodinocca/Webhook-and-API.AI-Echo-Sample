@@ -12,37 +12,37 @@ LIST_YES = [
 ]
 
 LIST_NO = [
-    'No, you should be fine without it.',
-    'I don\'t think that will be necessary.',
-    'You can bring it if you like, but I doubt you\'ll need it.',
-    'It seems pretty unlikely you\'ll need that.'
+    'No, puoi anche non portarlo.',
+    'Non penso sarà necessario...',
+    'Potresti anche portarlo ma dubito che ne avrai di bisogno.',
+    'A mio parere non ti servirà.'
 ]
 
 LIST_COLD = [
-    'Quite cold there.',
-    'Pretty freezing, I would say.',
-    'Don\'t forget your gloves.'
+    'Molto fredda l\'aria',
+    'Fa molto freddo direi...',
+    'Non dimenticarti i guanti'
 ]
 
 LIST_CHILLY = [
-    'Quite chilly.',
-    'You\'ll need a jacket for sure.'
+    'Fa piuttosto freddo',
+    'Ti servirebbe sicuramente una giacca.'
 ]
 
 LIST_WARM = [
-    'Temperature is okay.'
+    'La temperatura è ottima.'
 ]
 
 LIST_HOT = [
-    'Oh, that\'s hot!',
-    'You\'ll definitely need sunscreen.'
+    'Oh, fa caldissimo!',
+    'Fa molto caldo...'
 ]
 
 WEATHER_CURRENT = [
-    'The temperature in {place} now is {temperature} and {condition}.',
-    'Right now it\'s {temperature} and {condition} in {place}.',
-    'It\'s currently {temperature} and {condition} in {place}.',
-    'The temperature in {place} is {temperature} and {condition}.'
+    'A {place} ci sono {temperature}°C.',
+    'Adesso la temperatura è di {temperature}°C a {place}.',
+    'Attualmente ci sono {temperature}°C a {place}.',
+    'La temperatura a {place} è di {temperature}°C.'
 ]
 
 WEATHER_DATE = [
