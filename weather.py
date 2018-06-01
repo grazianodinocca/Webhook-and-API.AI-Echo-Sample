@@ -102,8 +102,9 @@ def processWeatherOutfit(req):
         return string
     else:
         outfit = parameters.get("outfit")
-        time = parameters.get("date")
+        time = parameters.get("date-time")
         print(time)
+        fc.get_weather_at(time)
         observation = owm.weather_at_place(city)
         w = observation.get_weather()
         celsius_result=w.get_temperature('celsius')
