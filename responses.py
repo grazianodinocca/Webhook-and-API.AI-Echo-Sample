@@ -46,10 +46,11 @@ LIST_HOT = [
 ]
 
 WEATHER_CURRENT = [
-    'A {place} ci sono {temperature}°C.',
-    'Adesso la temperatura è di {temperature}°C a {place}.',
-    'Attualmente ci sono {temperature}°C a {place}.',
-    'La temperatura a {place} è di {temperature}°C.'
+    'A {city} {descr} con {temperature}°C e venti da {dir} a {speed} km/h.',
+    'Adesso la temperatura è di {temperature}°C a {city} con {descr}. Umidità al {umid}%.',
+    'Attualmente {descr} con {temperature}°C a {city}. Venti a {speed} km/h provenienti da {dir}.',
+    'La temperatura a {place} è di {temperature}°C con {descr} e venti da {dir}.',
+    'A {city} {descr} con {temp}°C. Umidità al {umid}% con venti da {dir} a {speed} km/h."
 ]
 
 WEATHER_DATE = [
