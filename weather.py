@@ -109,23 +109,23 @@ def processWeatherOutfit(req):
         min_temp=int(round(celsius_result.get('temp_min')))
         max_temp=int(round(celsius_result.get('temp_max')))
         if outfit in COLD_WEATHER:
-            answer = LIST_YES if min_temp < _TEMP_LIMITS[
-                'chilly']['C'] else LIST_NO
+            answer = random.choice(LIST_YES) if min_temp < _TEMP_LIMITS[
+                'chilly']['C'] else random.choice(LIST_NO)
         elif outfit in WARM_WEATHER:
-            answer = LIST_YES if max_temp < _TEMP_LIMITS[
-                'warm']['C'] else LIST_NO
+            answer = random.choice(LIST_YES) if max_temp < _TEMP_LIMITS[
+                'warm']['C'] else random.choice(LIST_NO)
         elif outfit in HOT_WEATHER:
-            answer = LIST_YES if max_temp < _TEMP_LIMITS[
-                'hot']['C'] else LIST_NO
+            answer = random.choice(LIST_YES) if max_temp < _TEMP_LIMITS[
+                'hot']['C'] else random.choice(LIST_NO)
         elif outfit in RAIN:
-            answer = LIST_YES if fc.will_have_rain() else LIST_NO
+            answer = random.choice(LIST_YES) if fc.will_have_rain() else random.choice(LIST_NO)
         elif outfit in SNOW:
-            answer = LIST_YES if fc.will_have_snow() else LIST_NO
+            answer = random.choice(LIST_YES) if fc.will_have_snow() else random.choice(LIST_NO)
         elif outfit in SUN:
-            answer = LIST_YES if fc.will_have_sun() else LIST_NO
+            answer = random.choice(LIST_YES) if fc.will_have_sun() else random.choice(LIST_NO)
         else:
             answer = "Non penso di aver capito bene cosa vorresti indossare."
-        return random.choice(answer)
+        return answer
       
 def processWeatherTemperature(req):
         result = req.get("result")
@@ -141,15 +141,15 @@ def processWeatherTemperature(req):
             temp=int(round(celsius_result.get('temp')))
   
             if temp >= _TEMP_LIMITS['hot']['C']:
-                answer = LIST_HOT
+                answer = random.choice(LIST_HOT)
             elif temp > _TEMP_LIMITS['chilly']['C']:
-                answer = LIST_WARM
+                answer = random.choice(LIST_WARM)
             elif temp > _TEMP_LIMITS['cold']['C']:
-                answer = LIST_CHILLY
+                answer = random.choice(LIST_CHILLY)
             else:
-                answer = LIST_COLD
+                answer = random.choice(LIST_COLD)
 
-        return random.choice(answer)
+        return answer
       
 #processing the request from dialogflow
 def processRequest(req):
