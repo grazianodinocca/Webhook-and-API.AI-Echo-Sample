@@ -103,7 +103,7 @@ def processWeatherOutfit(req):
     else:
         outfit = parameters.get("outfit")
         fc = owm.three_hours_forecast(city)
-        time = parameters.get("date-time")+" 12:00:00+00"
+        time = parameters.get("date-time")
         print(time)
         fc.get_weather_at(time)
         observation = owm.weather_at_place(city)
