@@ -106,6 +106,7 @@ def processWeatherOutfit(req):
         w = observation.get_weather()
         celsius_result=w.get_temperature('celsius')
         fc = owm.three_hours_forecast(city)
+        print(fc.will_have_rain())
         min_temp=int(round(celsius_result.get('temp_min')))
         max_temp=int(round(celsius_result.get('temp_max')))
         if outfit in COLD_WEATHER:
