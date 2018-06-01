@@ -3,6 +3,8 @@ import os,json
 import pyowm
 import os
 import random
+from config import (_TEMP_LIMITS, _DEFAULT_TEMP_UNIT, WWO_API_KEY,
+                    MAX_FORECAST_LEN)
 
 from responses import (
     LIST_YES,
