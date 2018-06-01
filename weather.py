@@ -127,7 +127,7 @@ def processWeatherOutfit(req):
             answer = "Non penso di aver capito bene cosa vorresti indossare."
         return random.choice(answer)
       
-def processWeatherTemperature(req)
+def processWeatherTemperature(req):
         result = req.get("result")
         parameters = result.get("parameters")
         city = parameters.get("geo-city")
