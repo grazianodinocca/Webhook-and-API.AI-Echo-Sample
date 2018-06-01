@@ -148,7 +148,7 @@ def processWeatherTemperature(req):
                 answer = random.choice(LIST_CHILLY)
             else:
                 answer = random.choice(LIST_COLD)
-        answer = answer.format(city=city)
+        answer = answer.format(city = city, temp = temp)
         return answer
       
 #processing the request from dialogflow
