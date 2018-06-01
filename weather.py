@@ -74,7 +74,6 @@ def processWeather(req):
     observation = owm.weather_at_place(city)
     w = observation.get_weather()
     description = w.get_detailed_status()
-    description = description[0].upper()+description[1:]
     wind_res=w.get_wind()
     wind_speed=str(int(round(wind_res.get('speed'))))
     wind=str(processWindDegrees(wind_res.get('deg')))
