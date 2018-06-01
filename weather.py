@@ -98,7 +98,7 @@ def processWeatherOutfit(req):
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
     if city=="":
-        string = "Non posso darti questo tipo di informazioni senza essere a conoscenza del luogo in cui ti recherai..."
+        string = "Non posso darti questo tipo di informazioni senza essere a conoscenza del luogo..."
         return string
     else:
         outfit = parameters.get("outfit")
@@ -109,24 +109,48 @@ def processWeatherOutfit(req):
         min_temp=int(round(celsius_result.get('temp_min')))
         max_temp=int(round(celsius_result.get('temp_max')))
         if outfit in COLD_WEATHER:
-            answer = random.choice(LIST_YES) if min_temp < _TEMP_LIMITS[
-                'chilly']['C'] else random.choice(LIST_NO)
+            answer = LIST_YES if min_temp < _TEMP_LIMITS[
+                'chilly']['C'] else LIST_NO
         elif outfit in WARM_WEATHER:
-            answer = random.choice(LIST_YES) if max_temp < _TEMP_LIMITS[
-                'warm']['C'] else random.choice(LIST_NO)
+            answer = LIST_YES if max_temp < _TEMP_LIMITS[
+                'warm']['C'] else LIST_NO
         elif outfit in HOT_WEATHER:
-            answer =random.choice(LIST_YES) if max_temp < _TEMP_LIMITS[
-                'hot']['C'] else random.choice(LIST_NO)
+            answer = LIST_YES if max_temp < _TEMP_LIMITS[
+                'hot']['C'] else LIST_NO
         elif outfit in RAIN:
-            answer = random.choice(LIST_YES) if fc.will_have_rain() else random.choice(LIST_NO)
+            answer = LIST_YES if fc.will_have_rain() else LIST_NO
         elif outfit in SNOW:
-            answer = random.choice(LIST_YES) if fc.will_have_snow() else random.choice(LIST_NO)
+            answer = LIST_YES if fc.will_have_snow() else LIST_NO
         elif outfit in SUN:
-            answer = random.choice(LIST_YES) if fc.will_have_sun() else random.choice(LIST_NO)
+            answer = LIST_YES if fc.will_have_sun() else LIST_NO
         else:
             answer = "Non penso di aver capito bene cosa vorresti indossare."
-        return answer
-    
+        return random.choice(answer)
+      
+def processWeatherTemperature(req)
+        result = req.get("result")
+        parameters = result.get("parameters")
+        city = parameters.get("geo-city")
+        if city=="":
+            string = "Non posso darti questo tipo di informazioni senza essere a conoscenza del luogo..."
+            return string
+        else:
+            observation = owm.weather_at_place(city)
+            w = observation.get_weather()
+            celsius_result=w.get_temperature('celsius')
+            temp=int(round(celsius_result.get('temp')))
+  
+            if temp >= _TEMP_LIMITS['hot']['C']:
+                answer = LIST_HOT
+            elif temp > _TEMP_LIMITS['chilly']['C']:
+                answer = LIST_WARM
+            elif temp > _TEMP_LIMITS['cold']['C']:
+                answer = LIST_CHILLY
+            else:
+                answer = LIST_COLD
+
+        return random.choice(answer)
+      
 #processing the request from dialogflow
 def processRequest(req):
     
@@ -136,9 +160,10 @@ def processRequest(req):
     
     if action=="weather":
         speech = processWeather(req)
-
-    if action=="weather.outfit":
+    elif action=="weather.outfit":
         speech = processWeatherOutfit(req)
+    else:
+        speech = processWeatherTemperature(req)
             
     return {
         "speech": speech,
