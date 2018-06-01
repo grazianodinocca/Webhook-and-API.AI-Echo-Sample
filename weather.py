@@ -81,7 +81,7 @@ def processWeather(req):
     humidity=str(w.get_humidity())
     celsius_result=w.get_temperature('celsius')
     temp=str(int(round(celsius_result.get('temp'))))
-    string = random.choice(WEATHER_CURRENT).format(city = city, desc = description, wind = wind, temp = temp, speed = wind_speed)
+    string = random.choice(WEATHER_CURRENT).format(city = city, descr = description, wind = wind, temp = temp, speed = wind_speed, umid = humidity)
     return string 
 
 def processWeatherOutfit(req):
