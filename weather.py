@@ -98,10 +98,12 @@ def processWeatherOutfit(req):
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
     if city=="":
-        string = "In quale città?"
+        string = "Per andare dove?"
         return string
     else:
         outfit = parameters.get("outfit")
+        time = parameters.get("date")
+        print(time)
         observation = owm.weather_at_place(city)
         w = observation.get_weather()
         celsius_result=w.get_temperature('celsius')
