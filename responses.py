@@ -19,26 +19,30 @@ LIST_NO = [
 ]
 
 LIST_COLD = [
-    'Fa freddissimo a {city}',
-    'Fa molto freddo direi a {city}',
-    'Fa molto freddo a {city}, faresti meglio a non dimenticarti i guanti'
+    'Fa freddissimo a {city}. La temperatura si aggira attorno a {temp}°C.',
+    '{temp}°C. Fa molto freddo direi a {city}...',
+    'Fa molto freddo a {city}, faresti meglio a non dimenticarti i guanti. Ci sono {temp}°C.'
+    'La temperatura è di {temp}°C a {city}.'
 ]
 
 LIST_CHILLY = [
-    'Fa piuttosto freddo a {city}',
-    'Ti servirebbe sicuramente una giacca a {city}.',
-    'Non fa molto caldo a {city}.'
+    'Fa piuttosto freddo a {city}. La temperatura è di {temp}°C.',
+    'Ti servirebbe sicuramente una giacca con {temp}°C a {city}.',
+    'Non fa molto caldo a {city}. Ci sono {temp}°C.'
+    'La temperatura è di {temp}°C a {city}.'
 ]
 
 LIST_WARM = [
-    'La temperatura è ottima a {city}.',
-    'Le temperature si aggirano intorno a valori ottimali a {city}.'
+    'La temperatura è ottima a {city}. Si attesta attorno a {temp}°C.',
+    'Le temperature si aggirano intorno a valori ottimali a {city} con una media di {temp}°C.'
+    'La temperatura è di {temp}°C a {city}.'
 ]
 
 LIST_HOT = [
-    'Oh, a {city} fa caldissimo!',
-    'Fa molto caldo a {city}...',
+    'Oh, a {city} fa caldissimo! Ci sono {temp}°C.',
+    'Fa molto caldo a {city}. La temperatura è di {temp}°C.',
     'Le temperature sono molto elevate a {city}, fa un gran caldo.'
+    'La temperatura è di {temp}°C a {city}.'
 ]
 
 WEATHER_CURRENT = [
