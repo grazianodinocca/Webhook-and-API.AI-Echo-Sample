@@ -99,7 +99,15 @@ def processWeatherOutfit(req):
         string = "In quale città?"
         return string
     else:
-        return random.choice(LIST_YES)
+        outfit = parameters.get("outfit")
+        observation = owm.weather_at_place(city)
+        w = observation.get_weather()
+        celsius_result=w.get_temperature('celsius')
+        temp=int(round(celsius_result.get('temp')))
+        if outfit in COLD_WEATHER:
+            answer = random.choice(LIST_YES) if temp < _TEMP_LIMITS[
+                'chilly'][self.unit] else LIST_NO
+        return answer
     
 #processing the request from dialogflow
 def processRequest(req):
