@@ -8,7 +8,7 @@ LIST_YES = [
     'Meglio portarlo con te nel caso.',
     'Non fa mai male portarlo con sè.',
     'Meglio averlo e non averne di bisogno che non averlo e averne di bisogno.',
-    'Considerando il meteo forse sì.'
+    'Considerando il meteo è meglio averlo con sè.'
 ]
 
 LIST_NO = [
