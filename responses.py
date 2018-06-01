@@ -19,23 +19,26 @@ LIST_NO = [
 ]
 
 LIST_COLD = [
-    'Molto fredda l\'aria',
+    'Fa freddissimo',
     'Fa molto freddo direi...',
-    'Non dimenticarti i guanti'
+    'Fa molto freddo, faresti meglio a non dimenticarti i guanti'
 ]
 
 LIST_CHILLY = [
     'Fa piuttosto freddo',
     'Ti servirebbe sicuramente una giacca.'
+    'Non fa molto caldo'
 ]
 
 LIST_WARM = [
     'La temperatura è ottima.'
+    'Le temperature si aggirano intorno a valori ottimali.'
 ]
 
 LIST_HOT = [
     'Oh, fa caldissimo!',
     'Fa molto caldo...'
+    'Le temperature sono molto elevate, fa un gran caldo.'
 ]
 
 WEATHER_CURRENT = [
