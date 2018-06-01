@@ -50,7 +50,7 @@ WEATHER_CURRENT = [
     'Adesso la temperatura è di {temperature}°C a {city} con {descr}. Umidità al {umid}%.',
     'Attualmente {descr} con {temperature}°C a {city}. Venti a {speed} km/h provenienti da {direct}.',
     'La temperatura a {place} è di {temperature}°C con {descr} e venti da {direct}.',
-    'A {city} {descr} con {temp}°C. Umidità al {umid}% con venti da {direct} a {speed} km/h."
+    'A {city} {descr} con {temp}°C. Umidità al {umid}% con venti da {direct} a {speed} km/h.'
 ]
 
 WEATHER_DATE = [
