@@ -5,10 +5,10 @@ https://console.dialogflow.com/api-client/#/agent//prebuiltAgents/Weather
 """
 
 LIST_YES = [
-    'Better have it with you, just in case.',
-    'It never hurts to be extra prepared.',
-    'Better to have it and not need it than to need it and not have it.',
-    'Considering the forecast, I\'m going to say yes.'
+    'Meglio portarlo con te nel caso.',
+    'Non fa mai male portarlo con sè.',
+    'Meglio averlo e non averne di bisogno che non averlo e averne di bisogno.',
+    'Considerando il meteo forse sì.'
 ]
 
 LIST_NO = [
