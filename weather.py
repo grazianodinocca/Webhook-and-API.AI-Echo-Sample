@@ -3,6 +3,29 @@ import os,json
 import pyowm
 import os
 
+from responses import (
+    LIST_YES,
+    LIST_NO,
+    LIST_COLD,
+    LIST_CHILLY,
+    LIST_WARM,
+    LIST_HOT,
+    WEATHER_CURRENT,
+    WEATHER_DATE,
+    WEATHER_WEEKDAY,
+    WEATHER_DATE_TIME,
+    WEATHER_TIME_PERIOD,
+    WEATHER_TIME_PERIOD_DEFINED,
+    WEATHER_DATE_PERIOD_WEEKEND,
+    WEATHER_DATE_PERIOD,
+    WEATHER_ACTIVITY_YES,
+    WEATHER_ACTIVITY_NO,
+    RESPONSE_WEATHER_CONDITION,
+    RESPONSE_WEATHER_OUTFIT)
+from entities import (WINTER_ACTIVITY, SUMMER_ACTIVITY, DEMI_ACTIVITY,
+                              CONDITION_DICT, UNSUPPORTED, COLD_WEATHER,
+                              WARM_WEATHER, HOT_WEATHER, RAIN, SNOW, SUN)
+
 app = Flask(__name__)
 owmapikey=os.environ.get('OWMApiKey') #or provide your key here
 owm = pyowm.OWM(owmapikey, language='it')
@@ -75,7 +98,7 @@ def processWeatherOutfit(req):
         string = "In quale città?"
         return string
     else:
-        return city
+        return random.choice(RESPONSE_WEATHER_OUTFIT)
     
 #processing the request from dialogflow
 def processRequest(req):
