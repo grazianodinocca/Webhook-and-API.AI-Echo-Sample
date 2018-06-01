@@ -105,10 +105,26 @@ def processWeatherOutfit(req):
         observation = owm.weather_at_place(city)
         w = observation.get_weather()
         celsius_result=w.get_temperature('celsius')
-        temp=int(round(celsius_result.get('temp')))
+        fc = owm.daily_forecast(city, limit=1)
+        min_temp=int(round(celsius_result.get('temp_min')))
+        max_temp=int(round(celsius_result.get('temp_max')))
         if outfit in COLD_WEATHER:
-            answer = random.choice(LIST_YES) if temp < _TEMP_LIMITS[
+            answer = random.choice(LIST_YES) if min_temp < _TEMP_LIMITS[
                 'chilly']['C'] else random.choice(LIST_NO)
+        elif outfit in WARM_WEATHER:
+            answer = random.choice(LIST_YES) if max_temp < _TEMP_LIMITS[
+                'warm']['C'] else random.choice(LIST_NO)
+        elif outfit in HOT_WEATHER:
+            answer =random.choice(LIST_YES) if max_temp < _TEMP_LIMITS[
+                'hot']['C'] else random.choice(LIST_NO)
+        elif outfit in RAIN:
+            answer = random.choice(LIST_YES) if fc.will_have_rain() else random.choice(LIST_NO)
+        elif outfit in SNOW:
+            answer = random.choice(LIST_YES) if fc.will_have_snow() else random.choice(LIST_NO)
+        elif outfit in SUN:
+            answer = random.choice(LIST_YES) if fc.will_have_sun() else random.choice(LIST_NO)
+        else:
+            answer = 'Non conosco %s' % outfit
         return answer
     
 #processing the request from dialogflow
