@@ -98,7 +98,7 @@ def processWeatherOutfit(req):
         string = "In quale città?"
         return string
     else:
-        return random.choice(RESPONSE_WEATHER_OUTFIT)
+        return random.choice(LIST_YES)
     
 #processing the request from dialogflow
 def processRequest(req):
