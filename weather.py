@@ -98,7 +98,7 @@ def processWeatherOutfit(req):
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
     if city=="":
-        string = "Mi sembra che tu non abbia specificato il luogo di cui fornirti informazioni..."
+        string = "Non posso darti informazioni senza essere a conoscenza del luogo in cui ti recherai..."
         return string
     else:
         outfit = parameters.get("outfit")
