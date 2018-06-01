@@ -102,13 +102,13 @@ def processWeatherOutfit(req):
         return string
     else:
         outfit = parameters.get("outfit")
+        fc = owm.three_hours_forecast(city)
         time = parameters.get("date-time")
         print(time)
         fc.get_weather_at(time)
         observation = owm.weather_at_place(city)
         w = observation.get_weather()
         celsius_result=w.get_temperature('celsius')
-        fc = owm.three_hours_forecast(city)
         print(fc.will_have_rain())
         min_temp=int(round(celsius_result.get('temp_min')))
         max_temp=int(round(celsius_result.get('temp_max')))
