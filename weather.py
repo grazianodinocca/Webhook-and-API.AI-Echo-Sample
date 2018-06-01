@@ -68,10 +68,8 @@ def processWindDegrees(wind):
         return "Nord-Ovest"
       
 def datetime(time):
-    time[11]=" "
-    time[24]="+"
-    time[25]="0"
-    time[26]="0"
+    time.replace("T"," ")
+    time.replace("Z","")
     return time
   
 def processWeather(req):
