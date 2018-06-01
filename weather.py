@@ -2,6 +2,7 @@ from flask import Flask,request,make_response
 import os,json
 import pyowm
 import os
+import random
 
 from responses import (
     LIST_YES,
