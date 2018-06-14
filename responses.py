@@ -7,7 +7,6 @@ https://console.dialogflow.com/api-client/#/agent//prebuiltAgents/Weather
 LIST_YES = [
     'Meglio portarlo con te.',
     'Non fa mai male portarlo con sè.',
-    'Meglio averlo e non averne di bisogno che non averlo e averne di bisogno.',
     'Considerando il meteo è meglio averlo con sè.'
 ]
 
